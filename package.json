@@ -1,0 +1,48 @@
+{
+  "name": "gpthuman-mcp",
+  "version": "1.0.0",
+  "description": "Model Context Protocol (MCP) Server for the leading humanizer in the industry, Gpthuman.",
+  "keywords": [
+    "humanizer",
+    "mcp-server",
+    "ai-detector",
+    "ai-humanizer"
+  ],
+  "homepage": "https://github.com/GPTHuman-ai/mcp-server#readme",
+  "bugs": {
+    "url": "https://github.com/GPTHuman-ai/mcp-server/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GPTHuman-ai/mcp-server.git"
+  },
+  "license": "ISC",
+  "author": "Gpthuman",
+  "type": "commonjs",
+  "main": "dist/stdio.js",
+  "bin": { "gpthuman-mcp": "dist/stdio.js" },
+  "scripts": {
+    "build": "tsc && chmod 755 dist/stdio.js",
+    "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\"",
+    "start": "node dist/stdio.js",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "axios": "^1.18.0",
+    "dotenv": "^17.4.2",
+    "zod": "^4.4.3"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "directories": {
+    "test": "tests"
+  },
+  "devDependencies": {
+    "@types/node": "^25.9.3",
+    "jest": "^30.4.2",
+    "prettier": "^3.8.4",
+    "typescript": "^6.0.3"
+  }
+}
