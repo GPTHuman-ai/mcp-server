@@ -1,8 +1,8 @@
 # Gpthuman MCP Server
 
-A [Model Context Protocol](https://modelcontextprotocol.io) (MCP) server providing access to GPTHuman's API, the leading platform for transforming AI-generated text into natural, human-sounding content. This allows any MCP-compatible client (Cursor, Claude Desktop, etc.) to call the humanizer tool natively.
+A [Model Context Protocol](https://modelcontextprotocol.io) (MCP) server providing access to GPTHuman's API, the leading platform for transforming AI-generated text into natural, human-sounding content that successfully bypasses AI detectors. This allows any MCP-compatible client (Cursor, Claude Desktop, etc.) to call the humanizer tool natively.
 
-The server is shipped as a single `humanize_text` tool that rewrites AI-generated text into a more natural, human-sounding variant while preserving the requested tone and rewrite mode.
+The server is shipped as a single `humanize_text` tool that rewrites AI-generated text into a more natural, human-sounding variant designed to bypass AI detectors, while preserving the requested tone and rewrite mode.
 
 ## Requirements
 
@@ -67,7 +67,7 @@ GPTHUMAN_API_KEY=your-api-key-here npx -y gpthuman-mcp
 
 ### `humanize_text`
 
-Transforms AI-generated text into a more natural, human-sounding variant while preserving the requested tone and rewrite mode.
+Transforms AI-generated text into a more natural, human-sounding variant designed to bypass AI detectors, while preserving the requested tone and rewrite mode.
 
 **Input parameters**
 
