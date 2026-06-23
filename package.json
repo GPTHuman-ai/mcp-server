@@ -1,8 +1,8 @@
 {
-  "name": "gpthuman-mcp",
+  "name": "GPTHuman-mcp",
   "version": "1.0.0",
   "description": "Model Context Protocol (MCP) server providing access to GPTHuman's API, the leading platform for transforming AI-generated text into natural, human-sounding content.",
-  "author": "Gpthuman",
+  "author": "GPTHuman",
   "homepage": "https://github.com/GPTHuman-ai/mcp-server",
   "bugs": {
     "url": "https://github.com/GPTHuman-ai/mcp-server/issues"

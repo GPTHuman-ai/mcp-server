@@ -22,6 +22,6 @@ async function startStdioServer() {
 }
 
 startStdioServer().catch((e) => {
-  console.error("Error starting Gpthuman MCP Server:", e);
+  console.error("Error starting GPTHuman MCP Server:", e);
   process.exit(1);
 });

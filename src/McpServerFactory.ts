@@ -3,11 +3,11 @@ import { GptHumanAPI } from "./GptHumanAPI";
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { z } from "zod";
 
-const MCP_SERVER_NAME = "Gpthuman MCP Server";
+const MCP_SERVER_NAME = "GPTHuman MCP Server";
 const MCP_SERVER_VERSION = "1.0.0";
 const MCP_SERVER_WEBSITE_URL = "https://github.com/GPTHuman-ai/mcp-server";
 const MCP_SERVER_DESCRIPTION =
-  "A Model Context Protocol (MCP) server that exposes Gpthuman's AI humanization API. It provides tools for transforming AI-generated text into more natural, human-sounding writing while preserving the requested tone and rewrite mode.";
+  "A Model Context Protocol (MCP) server that exposes GPTHuman's AI humanization API. It provides tools for transforming AI-generated text into more natural, human-sounding writing while preserving the requested tone and rewrite mode.";
 
 export function createMcpServer(apiKey: string, apiBaseUrl: string): McpServer {
   const server = new McpServer({
