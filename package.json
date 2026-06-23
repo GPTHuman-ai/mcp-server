@@ -16,20 +16,25 @@
     "type": "git",
     "url": "git+https://github.com/GPTHuman-ai/mcp-server.git"
   },
-  "license": "ISC",
+  "license": "Apache-2.0",
   "author": "Gpthuman",
   "type": "commonjs",
   "main": "dist/stdio.js",
-  "bin": { "gpthuman-mcp": "dist/stdio.js" },
+  "bin": {
+    "gpthuman-mcp": "dist/stdio.js"
+  },
   "scripts": {
     "build": "tsc && chmod 755 dist/stdio.js",
     "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\"",
     "start": "node dist/stdio.js",
-    "test": "jest"
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "test:ci": "jest --ci --coverage --watchAll=false"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.29.0",
-    "axios": "^1.18.0",
+    "axios": "^1.18.1",
     "dotenv": "^17.4.2",
     "zod": "^4.4.3"
   },
@@ -40,9 +45,11 @@
     "test": "tests"
   },
   "devDependencies": {
+    "@types/jest": "^30.0.0",
     "@types/node": "^25.9.3",
     "jest": "^30.4.2",
     "prettier": "^3.8.4",
+    "ts-jest": "^29.4.11",
     "typescript": "^6.0.3"
   }
 }

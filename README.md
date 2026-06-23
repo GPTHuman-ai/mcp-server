@@ -7,7 +7,7 @@ The server is shipped as a single `humanize_text` tool that rewrites AI-generate
 ## Requirements
 
 - Node.js `>= 22.0.0`
-- A Gpthuman API key — get one at [gpthuman.ai](https://gpthuman.ai)
+- A Gpthuman API key — get one at [gpthuman.ai](https://app.gpthuman.ai/api)
 
 ## Configuration
 

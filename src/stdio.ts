@@ -15,6 +15,7 @@ if (!GPTHUMAN_API_KEY) {
 const GPTHUMAN_BASE_API_URL = "https://api.gpthuman.ai";
 
 const server = createMcpServer(GPTHUMAN_API_KEY, GPTHUMAN_BASE_API_URL);
+
 async function startStdioServer() {
   const transport = new StdioServerTransport();
   await server.connect(transport);

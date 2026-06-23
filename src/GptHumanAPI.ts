@@ -4,6 +4,14 @@ import { HumanizerRequest, HumanizerResponse } from "./type";
 export class GptHumanAPI {
   private readonly httpsClient: HttpsClient;
 
+  private readonly routes: Record<string, string> = {
+    humanize: "/v1/humanize",
+  };
+
+  private readonly methods: Record<string, string> = {
+    humanize: "POST",
+  };
+
   constructor(client: HttpsClient) {
     this.httpsClient = client;
   }
@@ -20,8 +28,8 @@ export class GptHumanAPI {
     };
 
     return await this.httpsClient.request<HumanizerResponse>(
-      "/humanize",
-      "POST",
+      this.routes.humanize,
+      this.methods.humanize,
       JSON.stringify(request),
     );
   }
@@ -29,9 +37,10 @@ export class GptHumanAPI {
   public assembleResponseForOutput(data: HumanizerResponse): {
     content: { type: "text"; text: string }[];
   } {
-    const humanScoreText = data.humanScore !== null
-      ? `Human Score: ${data.humanScore}`
-      : "N/A (language not supported by AI detector)";
+    const humanScoreText =
+      data.humanScore !== null
+        ? `Human Score: ${data.humanScore}`
+        : "N/A (language not supported by AI detector)";
 
     const metadata = [
       `### Humanize result`,

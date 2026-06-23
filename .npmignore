@@ -1,0 +1,57 @@
+# Dependencies
+node_modules/
+
+# Source and tests
+src/
+tests/
+coverage/
+.nyc_output/
+
+# TypeScript / build metadata
+*.tsbuildinfo
+tsconfig.json
+jest.config.js
+
+# Environment variables and local config
+.env
+.env.*
+!.env.example
+.cursor/
+.vscode/
+.idea/
+
+# Git / GitHub metadata
+.git/
+.gitignore
+.github/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# Package manager caches
+.npm/
+.yarn/
+.pnpm-store/
+
+# Misc local files
+Dockerfile
+docker-compose*.yml
+*.local
+*.pem
+*.key
+credentials.json
