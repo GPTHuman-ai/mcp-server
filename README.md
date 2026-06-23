@@ -1,4 +1,4 @@
-# Gpthuman MCP Server
+# GPTHuman MCP Server
 
 A [Model Context Protocol](https://modelcontextprotocol.io) (MCP) server providing access to GPTHuman's API, the leading platform for transforming AI-generated text into natural, human-sounding content that successfully bypasses AI detectors. This allows any MCP-compatible client (Cursor, Claude Desktop, etc.) to call the humanizer tool natively.
 
@@ -7,7 +7,7 @@ The server is shipped as a single `humanize_text` tool that rewrites AI-generate
 ## Requirements
 
 - Node.js `>= 22.0.0`
-- A Gpthuman API key — get one at [gpthuman.ai](https://app.gpthuman.ai/api)
+- A GPTHuman API key — get one at [GPTHuman.ai](https://app.gpthuman.ai/api)
 
 ## Configuration
 
@@ -15,7 +15,7 @@ The server reads a single environment variable:
 
 | Variable           | Required | Description                  |
 | ------------------ | -------- | ---------------------------- |
-| `GPTHUMAN_API_KEY` | Yes      | Your Gpthuman API key.       |
+| `GPTHUMAN_API_KEY` | Yes      | Your GPTHuman API key.       |
 
 ## Installation
 
@@ -126,15 +126,15 @@ Available scripts:
 src/
   stdio.ts            Entry point — wires the server to the stdio transport.
   McpServerFactory.ts Builds the McpServer and registers tools.
-  GptHumanAPI.ts      Wrapper around the Gpthuman REST API.
+  GptHumanAPI.ts      Wrapper around the GPTHuman REST API.
   HttpsClient.ts      Thin axios wrapper with auth and timeout.
   type.d.ts           Shared request/response interfaces.
 ```
 
 ## Links
 
-- [Gpthuman](https://gpthuman.ai)
-- [Gpthuman API docs](https://docs.gpthuman.ai)
+- [GPTHuman](https://gpthuman.ai)
+- [GPTHuman API docs](https://docs.gpthuman.ai)
 - [Model Context Protocol specification](https://modelcontextprotocol.io)
 
 ## License
