@@ -28,7 +28,7 @@ Add the server to `~/.cursor/mcp.json` (or your workspace `.cursor/mcp.json`):
   "mcpServers": {
     "gpthuman": {
       "command": "npx",
-      "args": ["-y", "gpthuman-mcp"],
+      "args": ["-y", "@gpthuman/mcp-server"],
       "env": {
         "GPTHUMAN_API_KEY": "your-api-key-here"
       }
@@ -46,7 +46,7 @@ Add it to `claude_desktop_config.json`:
   "mcpServers": {
     "gpthuman": {
       "command": "npx",
-      "args": ["-y", "gpthuman-mcp"],
+      "args": ["-y", "@gpthuman/mcp-server"],
       "env": {
         "GPTHUMAN_API_KEY": "your-api-key-here"
       }
@@ -60,7 +60,7 @@ Add it to `claude_desktop_config.json`:
 Any MCP client that supports the stdio transport can run the server with:
 
 ```bash
-GPTHUMAN_API_KEY=your-api-key-here npx -y gpthuman-mcp
+GPTHUMAN_API_KEY=your-api-key-here npx -y @gpthuman/mcp-server
 ```
 
 ## Tools
