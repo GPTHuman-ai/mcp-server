@@ -1,12 +1,14 @@
 {
   "name": "gpthuman-mcp",
   "version": "1.0.0",
-  "description": "Model Context Protocol (MCP) Server for the leading humanizer in the industry, Gpthuman.",
+  "description": "Model Context Protocol (MCP) server providing access to GPTHuman's API, the leading platform for transforming AI-generated text into natural, human-sounding content.",
   "keywords": [
     "humanizer",
     "mcp-server",
     "ai-detector",
-    "ai-humanizer"
+    "ai-humanizer",
+    "ai",
+    "paraphraser"
   ],
   "homepage": "https://github.com/GPTHuman-ai/mcp-server#readme",
   "bugs": {
