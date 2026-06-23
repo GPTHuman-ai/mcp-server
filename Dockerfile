@@ -20,5 +20,5 @@ ENTRYPOINT ["node", "dist/stdio.js"]
 
 CMD []
 
-LABEL org.opencontainers.image.description="Gpthuman MCP Server - Model Context Protocol for Gpthuman API"
+LABEL org.opencontainers.image.description="GPTHuman MCP Server - Model Context Protocol for GPTHuman API"
 LABEL org.opencontainers.image.source="https://github.com/GPTHuman-ai/mcp-server"

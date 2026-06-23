@@ -1,16 +1,9 @@
 {
-  "name": "gpthuman-mcp",
+  "name": "GPTHuman-mcp",
   "version": "1.0.0",
   "description": "Model Context Protocol (MCP) server providing access to GPTHuman's API, the leading platform for transforming AI-generated text into natural, human-sounding content.",
-  "keywords": [
-    "humanizer",
-    "mcp-server",
-    "ai-detector",
-    "ai-humanizer",
-    "ai",
-    "paraphraser"
-  ],
-  "homepage": "https://github.com/GPTHuman-ai/mcp-server#readme",
+  "author": "GPTHuman",
+  "homepage": "https://github.com/GPTHuman-ai/mcp-server",
   "bugs": {
     "url": "https://github.com/GPTHuman-ai/mcp-server/issues"
   },
@@ -18,14 +11,27 @@
     "type": "git",
     "url": "git+https://github.com/GPTHuman-ai/mcp-server.git"
   },
+  "keywords": [
+    "humanizer",
+    "humanize",
+    "humanize-text",
+    "mcp-server",
+    "ai-detector",
+    "ai-humanizer",
+    "ai",
+    "paraphraser",
+    "mcp",
+    "ai-mcp-server",
+    "model-context-protocol"
+  ],
   "license": "Apache-2.0",
-  "author": "Gpthuman",
   "type": "commonjs",
   "main": "dist/stdio.js",
   "bin": {
     "gpthuman-mcp": "dist/stdio.js"
   },
   "scripts": {
+    "prepare": "npm run build",
     "build": "tsc && chmod 755 dist/stdio.js",
     "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\"",
     "start": "node dist/stdio.js",
@@ -46,6 +52,9 @@
   "directories": {
     "test": "tests"
   },
+  "files": [
+    "dist"
+  ],
   "devDependencies": {
     "@types/jest": "^30.0.0",
     "@types/node": "^25.9.3",
