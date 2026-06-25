@@ -138,6 +138,74 @@ Once the server is configured, try giving your AI agent prompts like:
 - “Rewrite this product description in Professional mode.”
 - “Use Enhanced mode but preserve the original meaning.”
 
+## Use the Remote MCP Endpoint
+
+If you don’t want to run the MCP server locally, you can call GPTHuman’s hosted MCP endpoint directly over HTTP using JSON-RPC 2.0. 
+This is useful for custom agents, backend workflows, automation platforms, or internal tools that want to integrate GPTHuman without managing a local MCP process.
+
+### Endpoint
+
+`https://api.gpthuman.ai/mcp`
+
+### List available tools
+
+Use `tools/list` to inspect the tools exposed by the GPTHuman MCP server.
+
+```bash
+curl --location 'https://api.gpthuman.ai/mcp' \
+  --header 'Content-Type: application/json' \
+  --header 'Accept: application/json' \
+  --data '{
+    "jsonrpc": "2.0",
+    "method": "tools/list",
+    "id": 1
+  }'
+```
+
+### Humanize text
+
+Use `tools/call` with the `humanize_text` tool to transform AI-generated text into more natural, human-sounding writing.
+
+```bash
+curl --location 'https://api.gpthuman.ai/mcp' \
+  --header 'Content-Type: application/json' \
+  --header 'Accept: application/json' \
+  --data '{
+    "jsonrpc": "2.0",
+    "id": 1,
+    "method": "tools/call",
+    "params": {
+      "name": "humanize_text",
+      "arguments": {
+        "text": "Your AI-generated text of at least 300 characters goes here...",
+        "tone": "DESIRED_TONE",
+        "mode": "DESIRED_MODE",
+        "apiKey": "YOUR_GPTHUMAN_API_KEY"
+      }
+    }
+  }'
+```
+
+### Parameters
+
+- `text`: The text you want to humanize.
+- `tone`: The writing tone to use, such as `College`, `Professional`, or another supported tone.
+- `mode`: The humanization mode, such as `Balanced`.
+- `apiKey`: Your GPTHuman API key.
+
+### When to use this option
+
+Use the remote MCP endpoint if you are building:
+
+- custom AI agents
+- backend automations
+- workflow integrations
+- internal writing tools
+- no-code or low-code connectors
+- systems where running a local MCP server is not practical
+
+For desktop MCP clients like Claude Desktop, Cursor, or Windsurf, you can still use the local MCP server setup shown above.
+
 ## Credit Usage & Privacy
 
 - **Credit Usage:** Credits are consumed per word of output generated.
