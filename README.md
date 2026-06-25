@@ -1,8 +1,28 @@
 # GPTHuman MCP Server
 
-A [Model Context Protocol](https://modelcontextprotocol.io) (MCP) server providing access to GPTHuman's API, the leading platform for transforming AI-generated text into natural, human-sounding content that successfully bypasses AI detectors. This allows any MCP-compatible client (Cursor, Claude Desktop, etc.) to call the humanizer tool natively.
+[![npm version](https://img.shields.io/npm/v/@gpthuman/mcp-server.svg)](https://www.npmjs.com/package/@gpthuman/mcp-server)
+[![License](https://img.shields.io/npm/l/@gpthuman/mcp-server.svg)](./LICENSE)
+[![Node version](https://img.shields.io/node/v/@gpthuman/mcp-server.svg)](https://nodejs.org)
+[![MCP Compatible](https://img.shields.io/badge/MCP-Compatible-blue)](https://modelcontextprotocol.io)
 
-The server is shipped as a single `humanize_text` tool that rewrites AI-generated text into a more natural, human-sounding variant designed to bypass AI detectors, while preserving the requested tone and rewrite mode.
+A [Model Context Protocol](https://modelcontextprotocol.io) (MCP) server providing access to GPTHuman's API, the leading platform for rewriting AI-generated text into more natural, human-sounding prose, with detector-oriented metadata returned when available. This allows any MCP-compatible client (Cursor, Claude Desktop, etc.) to call the humanizer tool natively.
+
+The server is shipped as a single `humanize_text` tool that rewrites AI-generated text into a more natural, human-sounding variant, while preserving the requested tone and rewrite mode.
+
+## Quick Start
+
+You can run the server directly and test it in 60 seconds:
+
+```bash
+export GPTHUMAN_API_KEY=...
+npx -y @gpthuman/mcp-server
+```
+
+To test the server interactively with the MCP Inspector before wiring it up to Cursor or Claude:
+
+```bash
+npx @modelcontextprotocol/inspector npx -y @gpthuman/mcp-server
+```
 
 ## Requirements
 
@@ -36,6 +56,8 @@ Add the server to `~/.cursor/mcp.json` (or your workspace `.cursor/mcp.json`):
   }
 }
 ```
+
+> **Security Note:** While the example above places the `GPTHUMAN_API_KEY` directly in JSON, we recommend using environment variables or local secret storage when possible. Never commit `.cursor/mcp.json` with real API keys to version control.
 
 ### Claude Desktop
 
@@ -97,6 +119,38 @@ The tool returns two content blocks:
 }
 ```
 
+**Example Output**
+```
+---
+**Metadata Summary:**
+- **Human Score:** 98%
+- **Similarity:** 85%
+- **Readability:** College-level
+- **Credit Usage:** 142
+- **Remaining Balance:** 4,858
+- **Request ID:** req_xyz123
+```
+
+## Example Prompts for MCP Clients
+
+Once the server is configured, try giving your AI agent prompts like:
+- “Humanize this generated blog intro in College tone using Balanced mode.”
+- “Rewrite this product description in Professional mode.”
+- “Use Enhanced mode but preserve the original meaning.”
+
+## Credit Usage & Privacy
+
+- **Credit Usage:** Credits are consumed per word of output generated.
+- **Privacy:** Submitted content is private and is **not used for retraining** AI models.
+
+## Troubleshooting
+
+- **401:** Invalid or missing API key. Verify your `GPTHUMAN_API_KEY` is set correctly.
+- **400:** The text provided is under 300 characters or over 2,000 words.
+- **429:** Rate limit exceeded or insufficient credits.
+- **Node version issue:** Ensure you are using Node >=22.
+- **`humanScore: null`:** The detector score is unavailable for that specific language or content type.
+
 ## Development
 
 ```bash
@@ -135,6 +189,7 @@ src/
 
 - [GPTHuman](https://gpthuman.ai)
 - [GPTHuman API docs](https://docs.gpthuman.ai)
+- [GPTHuman Dashboard](https://app.gpthuman.ai)
 - [Model Context Protocol specification](https://modelcontextprotocol.io)
 
 ## License
