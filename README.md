@@ -5,7 +5,7 @@
 [![Node version](https://img.shields.io/node/v/@gpthuman/mcp-server.svg)](https://nodejs.org)
 [![MCP Compatible](https://img.shields.io/badge/MCP-Compatible-blue)](https://modelcontextprotocol.io)
 
-A [Model Context Protocol](https://modelcontextprotocol.io) (MCP) server providing access to GPTHuman's API, the leading platform for rewriting AI-generated text into more natural, human-sounding prose, with detector-oriented metadata returned when available. This allows any MCP-compatible client (Cursor, Claude Desktop, etc.) to call the humanizer tool natively.
+A [Model Context Protocol](https://modelcontextprotocol.io) (MCP) server providing access to GPTHuman's API, the leading platform for rewriting AI-generated text into more natural, human-sounding prose, with AI-detector metadata returned when available. This allows any MCP-compatible client (Cursor, Claude Desktop, etc.) to call the humanizer tool natively.
 
 The server is shipped as a single `humanize_text` tool that rewrites AI-generated text into a more natural, human-sounding variant, while preserving the requested tone and rewrite mode.
 
