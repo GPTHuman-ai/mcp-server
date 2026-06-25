@@ -1,0 +1,35 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.GPTHuman-ai/humanizer",
+  "description": "Transform AI-generated text into natural, human-sounding content that successfully bypasses AI detectors.",
+  "repository": {
+    "url": "https://github.com/GPTHuman-ai/mcp-server",
+    "source": "github"
+  },
+  "version": "1.0.4",
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://api.gpthuman.ai/mcp"
+    }
+  ],
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "@gpthuman/mcp-server",
+      "version": "1.0.4",
+      "transport": {
+        "type": "stdio"
+      },
+      "environmentVariables": [
+        {
+          "name": "GPTHUMAN_API_KEY",
+          "description": "Your GPTHuman API key",
+          "isRequired": true,
+          "format": "string",
+          "isSecret": true
+        }
+      ]
+    }
+  ]
+}
