@@ -6,7 +6,7 @@
     "url": "https://github.com/GPTHuman-ai/mcp-server",
     "source": "github"
   },
-  "version": "1.0.5",
+  "version": "1.0.4",
   "remotes": [
     {
       "type": "streamable-http",
