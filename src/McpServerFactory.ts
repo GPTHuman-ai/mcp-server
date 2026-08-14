@@ -4,7 +4,8 @@ import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { z } from "zod";
 
 const MCP_SERVER_NAME = "GPTHuman MCP Server";
-const MCP_SERVER_VERSION = "1.0.0";
+const HUMANIZER_MAX_WORDS_COUNT = 2_500;
+const MCP_SERVER_VERSION = "1.0.5";
 const MCP_SERVER_WEBSITE_URL = "https://github.com/GPTHuman-ai/mcp-server";
 const MCP_SERVER_DESCRIPTION =
   "A Model Context Protocol (MCP) server that exposes GPTHuman's AI humanization API. It provides tools for transforming AI-generated text into more natural, human-sounding writing that successfully bypasses AI detectors, while preserving the requested tone and rewrite mode.";
@@ -38,13 +39,13 @@ export function createMcpServer(apiKey: string, apiBaseUrl: string): McpServer {
       inputSchema: {
         text: z
           .string()
-          .min(300, "Text must be at least 300 characters long.")
+          .min(250, "Text must be at least 250 characters long.")
           .refine(
-            (value) => value.trim().split(/\s+/).filter(Boolean).length <= 2000,
-            { message: "Text must not exceed 2,000 words." },
+            (value) => value.trim().split(/\s+/).filter(Boolean).length <= HUMANIZER_MAX_WORDS_COUNT,
+            { message: `Text must not exceed ${HUMANIZER_MAX_WORDS_COUNT} words.` },
           )
           .describe(
-            "The text to humanize. Must be at least 300 characters and must not exceed 2,000 words.",
+            `The text to humanize. Must be at least 250 characters and must not exceed ${HUMANIZER_MAX_WORDS_COUNT} words.`,
           ),
         tone: z
           .enum(["Standard", "HighSchool", "College", "PhD"])
