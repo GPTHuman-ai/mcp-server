@@ -42,10 +42,10 @@
     "test:ci": "jest --ci --coverage --watchAll=false"
   },
   "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.30.0",
-    "axios": "^1.19.0",
+    "@modelcontextprotocol/sdk": "^1.32.2",
+    "axios": "^1.20.0",
     "dotenv": "^17.4.2",
-    "zod": "^4.4.3"
+    "zod": "^4.6.7"
   },
   "engines": {
     "node": ">=22.0.0"
