@@ -147,7 +147,7 @@ This is useful for custom agents, backend workflows, automation platforms, or in
 
 `https://api.gpthuman.ai/mcp`
 
-The remote endpoint uses the MCP Streamable HTTP transport and returns JSON responses (`application/json`).
+The remote endpoint uses the MCP Streamable HTTP transport and returns JSON responses (`application/json`). As the transport requires, requests must send `Accept: application/json, text/event-stream`.
 
 ### Authentication
 
@@ -164,7 +164,7 @@ Use `tools/list` to inspect the tools exposed by the GPTHuman MCP server.
 ```bash
 curl --location 'https://api.gpthuman.ai/mcp' \
   --header 'Content-Type: application/json' \
-  --header 'Accept: application/json' \
+  --header 'Accept: application/json, text/event-stream' \
   --header 'Authorization: Bearer YOUR_GPTHUMAN_API_KEY' \
   --data '{
     "jsonrpc": "2.0",
@@ -180,7 +180,7 @@ Use `tools/call` with the `humanize_text` tool to transform AI-generated text in
 ```bash
 curl --location 'https://api.gpthuman.ai/mcp' \
   --header 'Content-Type: application/json' \
-  --header 'Accept: application/json' \
+  --header 'Accept: application/json, text/event-stream' \
   --header 'Authorization: Bearer YOUR_GPTHUMAN_API_KEY' \
   --data '{
     "jsonrpc": "2.0",
