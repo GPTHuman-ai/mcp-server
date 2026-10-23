@@ -147,6 +147,16 @@ This is useful for custom agents, backend workflows, automation platforms, or in
 
 `https://api.gpthuman.ai/mcp`
 
+The remote endpoint uses the MCP Streamable HTTP transport and returns JSON responses (`application/json`). As the transport requires, requests must send `Accept: application/json, text/event-stream`.
+
+### Authentication
+
+Pass your GPTHuman API key as a bearer token in the `Authorization` header on every request:
+
+```
+Authorization: Bearer YOUR_GPTHUMAN_API_KEY
+```
+
 ### List available tools
 
 Use `tools/list` to inspect the tools exposed by the GPTHuman MCP server.
@@ -154,7 +164,8 @@ Use `tools/list` to inspect the tools exposed by the GPTHuman MCP server.
 ```bash
 curl --location 'https://api.gpthuman.ai/mcp' \
   --header 'Content-Type: application/json' \
-  --header 'Accept: application/json' \
+  --header 'Accept: application/json, text/event-stream' \
+  --header 'Authorization: Bearer YOUR_GPTHUMAN_API_KEY' \
   --data '{
     "jsonrpc": "2.0",
     "method": "tools/list",
@@ -169,7 +180,8 @@ Use `tools/call` with the `humanize_text` tool to transform AI-generated text in
 ```bash
 curl --location 'https://api.gpthuman.ai/mcp' \
   --header 'Content-Type: application/json' \
-  --header 'Accept: application/json' \
+  --header 'Accept: application/json, text/event-stream' \
+  --header 'Authorization: Bearer YOUR_GPTHUMAN_API_KEY' \
   --data '{
     "jsonrpc": "2.0",
     "id": 1,
@@ -179,8 +191,7 @@ curl --location 'https://api.gpthuman.ai/mcp' \
       "arguments": {
         "text": "Your AI-generated text of at least 300 characters goes here...",
         "tone": "DESIRED_TONE",
-        "mode": "DESIRED_MODE",
-        "apiKey": "YOUR_GPTHUMAN_API_KEY"
+        "mode": "DESIRED_MODE"
       }
     }
   }'
@@ -191,7 +202,6 @@ curl --location 'https://api.gpthuman.ai/mcp' \
 - `text`: The text you want to humanize.
 - `tone`: The writing tone to use, such as `College`, `Professional`, or another supported tone.
 - `mode`: The humanization mode, such as `Balanced`.
-- `apiKey`: Your GPTHuman API key.
 
 ### When to use this option
 
